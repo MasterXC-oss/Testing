@@ -1,16 +1,16 @@
-import ICalculatorStrategy from '../ICalculatorStrategy';
+import ICalculatorStrategy from '../ICalculatorStrategy.js';
 
 class DefaultStrategy extends ICalculatorStrategy {
-  #operation;
+    #operation;
 
-  constructor(operation) {
-    super();
-    this.#operation = operation;
-  }
+    constructor(operation) {
+        super();
+        this.#operation = operation;
+    }
 
-  calculate(a = 0, b = 0) {
-    return this.#operation.execute(a, b);
-  }
+    execute(a = 0, b = 0) {
+        return this.#operation.execute(a, b);
+    }
 }
 
 export default DefaultStrategy;

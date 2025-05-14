@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import express from 'express';
+import calculatorController from './Controllers/CalculatorController.js';  // Asegúrate de incluir .js
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const app = express();
+app.use(express.json());
 
-export default App;
+// Registrar las rutas del controlador
+app.use('/api/CalculatorController', calculatorController);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+export default app;

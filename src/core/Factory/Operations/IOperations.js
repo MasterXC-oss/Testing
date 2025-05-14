@@ -1,4 +1,4 @@
-import IOperation from "./IOperation";
+import IOperation from "../IOperation.js";
 
 class Addition extends IOperation {
   execute(a, b = 0) {
