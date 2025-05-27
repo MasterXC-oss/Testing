@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -28,12 +28,15 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-      
+
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,17 +53,20 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
       
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_916BEB24125A42638720A8EB57B4F156 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3CC1FB87B672492AB180017DD3C6D08E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2989B644D9604430A8DB3164C3A9D746 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6DBF58D4B29D4A6BB3EE7FC02321E2C3 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_671ABB5E640849A6BE078067B57C4F7E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7EB487BEE690413EBFF9F6DD5BC658D6 }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'api-calculadora123'
           slot-name: 'Production'
