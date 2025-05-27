@@ -1,6 +1,6 @@
 import express from 'express';
 import calculatorController from './Controllers/CalculatorController.js';  // Asegúrate de incluir .js
-import { swaggerUi, swaggerSpec } from './swagger.js';
+import { swaggerUi, swaggerSpec } from './Controllers/swagger.js';
 
 const app = express();
 app.use(express.json());
@@ -9,6 +9,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('¡API funcionando desde Azure!');
 });
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Registrar las rutas del controlador
 app.use('/api/calculatorcontroller', calculatorController);
