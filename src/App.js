@@ -1,6 +1,6 @@
 import express from 'express';
 import calculatorController from './Controllers/CalculatorController.js';  // Asegúrate de incluir .js
-import { swaggerUi, swaggerSpec } from './Controllers/swagger.js';
+import { swaggerUi, swaggerSpec } from './swagger.js';
 
 const app = express();
 app.use(express.json());
