@@ -14,6 +14,10 @@ const options = {
           url: 'https://calculator123-dmeyggbpgdc5esdp.eastus-01.azurewebsites.net/api/calculatorcontroller', // en minúsculas
           description: 'Servidor en Azure',
         },
+        {
+          url: 'http://localhost:3000/api/calculatorcontroller',
+          description: 'Servidor local para pruebas',
+        },
       ],
     },
     apis: ['./Controllers/CalculatorController.js'],
