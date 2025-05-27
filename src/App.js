@@ -13,11 +13,15 @@ app.use('/api/calculatorcontroller', calculatorController);
 
 console.log('PORT from env:', process.env.PORT);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
-console.log('PORT from env:', process.env.PORT);
+if (!PORT) {
+    console.error("❌ ERROR: No se encontró la variable de entorno PORT. Azure no puede iniciar la app.");
+    process.exit(1); // Termina la app para que Azure sepa que falló
+}
+
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`✅ Server running on port ${PORT}`);
 });
 
 export default app;
