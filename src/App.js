@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 import calculatorController from './Controllers/CalculatorController.js';
 
 const app = express();
