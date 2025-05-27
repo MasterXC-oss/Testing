@@ -6,7 +6,7 @@ const calculatorService = new CalculatorService();
 
 /**
  * @swagger
- * /:
+ * /api/calculatorcontroller/:
  *   get:
  *     summary: Obtener valores predefinidos
  *     responses:
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 
 /**
  * @swagger
- * /{id}:
+ * /api/calculatorcontroller/{id}:
  *   get:
  *     summary: Obtener un valor por ID
  *     parameters:
@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
 
 /**
  * @swagger
- * /calculate:
+ * /api/calculatorcontroller/calculate:
  *   post:
  *     summary: Realizar una operación matemática
  *     requestBody:

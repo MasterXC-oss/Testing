@@ -16,7 +16,7 @@ const options = {
       },
     ],
   },
-  apis: ['./CalculatorController.js'], // aquí va la ruta de tus rutas
+  apis: ['./Controllers/CalculatorController.js'], // aquí va la ruta de tus rutas
 };
 
 const swaggerSpec = swaggerJsdoc(options);
