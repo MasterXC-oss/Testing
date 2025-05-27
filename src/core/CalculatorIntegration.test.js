@@ -42,4 +42,3 @@ test("Verifica la Raiz de dos números", ()  => {
     expect(calcular.Subtract(65,1)).toBe(resultadoMultiplica);
     expect(calcular.Raiz(calcular.Subtract(65,1))).toBe(8);
 })
-
