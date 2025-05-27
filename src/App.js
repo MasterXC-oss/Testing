@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 // Registrar las rutas del controlador
-app.use('/api/CalculatorController', calculatorController);
+app.use('/api/calculatorController', calculatorController);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
