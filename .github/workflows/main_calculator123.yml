@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - api-calculadora123
+name: Build and deploy Node.js app to Azure Web App - calculator123
 
 on:
   push:
@@ -54,15 +54,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_916BEB24125A42638720A8EB57B4F156 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3CC1FB87B672492AB180017DD3C6D08E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2989B644D9604430A8DB3164C3A9D746 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8949AC9364584E9B8B7910712D07A89E }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1635EBED1CB14283BF9744376416A0F3 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_90A1385A1F0C4330BAC4EF38F83FC2DE }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'api-calculadora123'
+          app-name: 'calculator123'
           slot-name: 'Production'
           package: .
           
