@@ -7,18 +7,15 @@ const options = {
     info: {
       title: 'API de Calculadora',
       version: '1.0.0',
-      description: 'Documentación de la API de Calculadora con Swagger',
     },
     servers: [
       {
-        url: 'https://calculator123-dmeyggbpgdc5esdp.eastus-01.azurewebsites.net/api/CalculatorController',
-        description: 'Servidor en Azure',
+        url: 'https://calculator123-dmeyggbpgdc5esdp.eastus-01.azurewebsites.net/api/calculatorcontroller',
       },
     ],
   },
-  apis: ['./routes/CalculatorController.js'], // aquí va la ruta de tus rutas
+  apis: ['./Controllers/CalculatorController.js'], // Ajusta la ruta si está en otro lado
 };
 
-const swaggerSpec = swaggerJsdoc(options);
-
-export { swaggerUi, swaggerSpec };
+export const swaggerSpec = swaggerJsdoc(options);
+export const swaggerUi = swaggerUi;
