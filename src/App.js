@@ -4,6 +4,10 @@ import calculatorController from './Controllers/CalculatorController.js';  // As
 const app = express();
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('¡API funcionando desde Azure!');
+});
+
 // Registrar las rutas del controlador
 app.use('/api/CalculatorController', calculatorController);
 
